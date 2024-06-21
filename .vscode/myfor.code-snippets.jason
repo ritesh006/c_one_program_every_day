@@ -1,0 +1,23 @@
+{
+    "For Loop": {
+        "prefix": "fl",
+        "body": [
+            "${1|generateLoopVariable|}(int ${2:i} = 0; ${2:i} < ${3:count}; ${2:i}++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Standard for loop with dynamic variable"
+    },
+    "generateLoopVariable": {
+        "scope": "javascript,typescript",
+        "prefix": "generateLoopVariable",
+        "body": [
+            "function generateLoopVariable(index) {",
+            "    const alphabet = 'abcdefghijklmnopqrstuvwxyz';",
+            "    const charIndex = index % alphabet.length;",
+            "    return alphabet.charAt(charIndex);",
+            "}"
+        ],
+        "description": "Generate loop variable dynamically (i, j, k, ...)"
+    }
+}
