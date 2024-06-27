@@ -6,52 +6,45 @@ typedef struct records{
     struct records *next;
 }sll;
 
-void add_end(sll **head, int data)
+void add_end(sll **head, int data){
+	sll *new_data = malloc(sizeof(sll));
+	if(new_data == NULL)
+	{
+		printf("Memory Not Allocated\n");
+		exit(1);
+	}
+
+	new_data->data = data;
+	new_data->next = NULL;
+
+	if(*head == NULL)
+	{
+		*head = new_data;
+		return;
+	}
+	sll *temp = *head;
+
+	while(temp->next != NULL)
+	{
+		temp = temp->next;
+	}
+
+	temp->next = new_data;
+}
+
+void print(sll *head)
 {
-    sll *new_data = malloc(sizeof(sll));
-    if(new_data == NULL)
-    {
-        printf("Memory Not Allocated\n");
-    }
-    else{
-        printf("Memory Allocated\n");
-    }
+	if(head == NULL)
+	{
+		printf("NO data\n");
+	}
 
-    new_data -> data = data;
-    new_data -> next = NULL;
-
-    if(*head == NULL)
-    {
-        *head = new_data;
-        printf("head null\n");
-        return;
-    }
-
-    sll *temp = *head;
-
-    while(temp -> next!= NULL)
-    {
-        temp = temp->next;
-    }
-
-    temp -> next = new_data;
-
+	while(head != NULL)
+	{
+		printf("%d\n",head->data);
+		head = head->next;
+	}
 }
-
-void print(sll *head){
-    if(head == NULL)
-    {
-        printf("No Data\n");
-        return;
-    }
-
-    while(head != NULL)
-    {
-        printf("%d\n",head->data);
-        head = head -> next;
-    }
-}
-
 int main(){
     sll *head = NULL;
 
