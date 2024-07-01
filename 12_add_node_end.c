@@ -6,11 +6,12 @@ typedef struct records{
     struct records *next;
 }sll;
 
-void add_end(sll **head, int data){
+void add_end(sll **head, int data)
+{
 	sll *new_data = malloc(sizeof(sll));
 	if(new_data == NULL)
 	{
-		printf("Memory Not Allocated\n");
+		printf("Memory Not Allocated");
 		exit(1);
 	}
 
@@ -22,6 +23,7 @@ void add_end(sll **head, int data){
 		*head = new_data;
 		return;
 	}
+
 	sll *temp = *head;
 
 	while(temp->next != NULL)
@@ -30,13 +32,14 @@ void add_end(sll **head, int data){
 	}
 
 	temp->next = new_data;
+
 }
 
 void print(sll *head)
 {
 	if(head == NULL)
 	{
-		printf("NO data\n");
+		printf("No Data\n");
 	}
 
 	while(head != NULL)
