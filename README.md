@@ -8,6 +8,6 @@ I will upload one single program of c every day here today date: 25/06/2024<br>
 I will upload one single program of c every day here today date: 26/06/2024<br> 
 I will upload one single program of c every day here today date: 27/06/2024<br> 
 28
-29
+I will upload one single program of c every day here today date: 28/06/2024<br> 
 30
 I will upload one single program of c every day here today date: 01/07/2024<br> 
