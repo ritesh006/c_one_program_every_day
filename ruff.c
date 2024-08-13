@@ -1,75 +1,33 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
 
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
-    int arrayOdd[5];
-   int arrayEven[5];
-int main()
-{
-    int N;
-    scanf("%d", &N);
-    int array1[N];
-    int array2[N];
-    for (int i = 0; i < N; i++) {
+// Define color codes
+#define RESET       "\033[0m"
+#define BLACK       "\033[30m"
+#define RED         "\033[31m"
+#define GREEN       "\033[32m"
+#define YELLOW      "\033[33m"
+#define BLUE        "\033[34m"
+#define MAGENTA     "\033[35m"
+#define CYAN        "\033[36m"
+#define WHITE       "\033[37m"
 
-        scanf("%d", &array1[i]);
-    }
-    // printf("\n");
-    // for (int i = 0; i < N; i++) {
+// Define background color codes
+#define BBLACK      "\033[40m"
+#define BRED        "\033[41m"
+#define BGREEN      "\033[42m"
+#define BYELLOW     "\033[43m"
+#define BBLUE       "\033[44m"
+#define BMAGENTA    "\033[45m"
+#define BCYAN       "\033[46m"
+#define BWHITE      "\033[47m"
 
-    //     printf("%d\n", array1[i]);
-    // }
-int even = 0;
-int odd =0;
-    for(int i = 0; i < N-1; i++)
-    {
-        for(int j = 0; j < N - 1 - i; j++)\
-        {
-            if(array1[j] > array1[j+1])
-            {
-                int temp = array1[j];
-                array1[j] = array1[j+1];
-                array1[j+1] = temp;
-            }
-        }
-    }
-   printf("\n");
-    for (int i = 0; i < N; i++) {
+int main() {
+    // Print text with different colors
+    printf(RED "This is red text." RESET "\n");
+    printf(GREEN "This is green text." RESET "\n");
+    printf(BLUE "This is blue text." RESET "\n");
+    printf(YELLOW "This is yellow text." RESET "\n");
+    printf(BRED BCYAN "This is text with black background and white foreground." RESET "\n");
 
-        printf("%d ", array1[i]);
-    }
-
-
-      for (int i = 0; i < 10; i++) {
-
-       if(array1[i] % 2 == 0)
-       {
-            arrayEven[even] = array1[i];
-            even++;
-            printf("%d\n", arrayEven[i]);
-       }
-       else
-       {
-        arrayOdd[odd] = array1[i];
-        odd++;
-       }
-    }
-    
-       printf("\n");
-    for (int i = 0; i < 5; i++) {
-
-        printf("%d ", arrayEven[i]);
-    }
-
-for (int i = 0; i < 5; i++) {
-
-        printf("%d ", arrayOdd[i]);
-    }
-    printf("\n");
     return 0;
 }
