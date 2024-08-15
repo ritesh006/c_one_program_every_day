@@ -1,52 +1,64 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-void enter_data(void);
-void print_data(void);
-int circuler_buffer[8];
+#define BUFFER_SIZE 5  // Define the size of the buffer
 
-size_t count = 0;
-int *head = circuler_buffer;
-int *tail = circuler_buffer;
-int main()
-{
-    // for(size_t i = 0; i < 8; i++)
-    // {
-    //     enter_data();
-    //     print_data();
-    // }
+int buffer[BUFFER_SIZE];
+int head = 0;
+int tail = 0;
+int count = 0;
 
-    while(1)
-    {
-        enter_data();
-        print_data();
+// Function to add data to the buffer
+void enqueue(int data) {
+    if (count == BUFFER_SIZE) {
+        // Buffer is full, overwrite the oldest data
+        tail = (tail + 1) % BUFFER_SIZE;
+    } else {
+        count++;
     }
-
-   return 0;
+    buffer[head] = data;
+    head = (head + 1) % BUFFER_SIZE;
 }
-void enter_data(void)
-{
+
+// Function to remove data from the buffer
+int dequeue() {
+    if (count == 0) {
+        printf("Buffer is empty\n");
+        return -1;  // Return an error code
+    }
+    int data = buffer[tail];
+    tail = (tail + 1) % BUFFER_SIZE;
+    count--;
+    return data;
+}
+
+// Function to print the buffer content
+void print_buffer() {
+    printf("Buffer content: ");
+    if (count == 0) {
+        printf("Buffer is empty\n");
+        return;
+    }
     
-    printf("Enter Data in Buffer: ");
-    scanf("%d",head);
-    head++;
-
-    if(count == 7)
-    {
-        printf("Buffer Full\n");
+    int i = tail;
+    int elements = count;
+    while (elements > 0) {
+        printf("%d ", buffer[i]);
+        i = (i + 1) % BUFFER_SIZE;
+        elements--;
     }
-    int *head = circuler_buffer;
-}
-void print_data(void)
-{
-    printf("Data is:  ");
-        printf(" %d ",*tail);
-       if(count > 0)
-       {
-         tail++;
-         printf("count: %d",count);
-       }
-       count++;
     printf("\n");
+}
 
+int main() {
+    int data;
+    while (1) {
+        printf("Enter Data in Buffer: ");
+        scanf("%d", &data);
+
+        enqueue(data);
+        print_buffer();
+
+        printf("Data is: %d\n", dequeue());
+    }
+    return 0;
 }
