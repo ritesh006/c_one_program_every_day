@@ -1,23 +1,27 @@
+//print all unique value in array
 #include <iostream>
 using namespace std;
 
 void unique_value(int array[], int size)
 {
-    
+    int count = 0;
     for(int i = 0; i < size; i++)
-    {   int count = 0;
-        for(int j = 0; j < size - i; j++)
+    {   
+        for(int j = 0; j < size; j++)
         {
             if(array[i] == array[j])
             {
+                
                 count++;
-                if(count == 2)
+                //cout << array[i] << array[j] << count << endl;
+                if((!(i == j)) && (count == 2))
                 {
                     cout << array[i] << endl;
                 }
             }
             
         }
+        count = 0;
     }
 }
 
